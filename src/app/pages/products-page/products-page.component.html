@@ -1,0 +1,39 @@
+<div class="wrapper">
+  <div class="header">
+    <div>
+    </div>
+    <div class="photo_h">
+      Фото
+    </div>
+    <div class="name_h">
+      Название
+    </div>
+    <div class="_h">
+      Цена
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+  </div>
+  <div class="product_list">
+    <div class="product" *ngFor="let product of allProducts; index as i;" [routerLink]="[product.id]">
+      <div>
+      </div>
+      <div class="photo">
+        <img class="product_card_image" width="100px" height="100px" [defaultImage]="'assets/loading.png'" [lazyLoad]='this.apiService.PHP_API_SERVER+"/backend/product-photos/"+product.photo'>
+      </div>
+      <div class="name">
+        {{product.name}}
+      </div>
+      <div class="price">
+        {{product.price}}
+      </div>
+      <img src="assets/delete.svg" width="20px" alt="" (click)="deleteProduct(product.id); $event.stopPropagation()">
+      <div>
+      </div>
+    </div>
+  </div>
+
+</div>
+  <img class="plus_icon" src="assets/plus.svg" width="40px" alt="" routerLink="/products/new">

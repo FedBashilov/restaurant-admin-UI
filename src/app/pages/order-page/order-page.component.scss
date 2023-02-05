@@ -1,0 +1,39 @@
+.wrapper{
+  padding: 40px 50px;
+
+  .title{
+    text-align: center;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 44px;
+    text-align: center;
+    letter-spacing: 0.365em;
+    margin-bottom: 30px;
+  }
+
+  .flexbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .static_info{
+      margin-right: 50px;
+      .static_field{
+        margin: 10px 0px;
+      }
+    }
+  }
+
+
+}
+
+.label{
+  display: block;
+}
+
+.select{
+
+  width: 200px !important;
+}

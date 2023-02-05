@@ -1,0 +1,26 @@
+
+  <form class="login_form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="title">
+      Вход
+    </div>
+    <div class="form_element">
+      <mat-form-field>
+        <input matInput type="text" formControlName="login" placeholder = "Логин">
+      </mat-form-field>
+      <div class="error" *ngIf="isControlInvalid('login', this.loginForm)">
+        Введите корректный логин
+      </div>
+    </div>
+    <div class="form_element">
+      <mat-form-field>
+        <input matInput type="password" formControlName="password" placeholder = "Пароль">
+      </mat-form-field>
+      <div class="error" *ngIf="isControlInvalid('password', this.loginForm)">
+        Пароль должен содержать не меньше 8 символов
+      </div>
+    </div>
+    <div class="response_error">
+      {{loginErrorMessage}}
+    </div>
+    <button class="common_button lemon" type="submit">Войти</button>
+  </form>

@@ -1,0 +1,53 @@
+.wrapper{
+  padding: 50px 0;
+}
+.header, .order{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.3fr 0.3fr 0.3fr 0.8fr 1fr 0.7fr 0.5fr 0.1fr 0.3fr;
+  grid-column-gap: 20px;
+}
+
+.header{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 17px;
+  letter-spacing: 0.07em;
+  padding-bottom: 10px;
+}
+
+.order_list{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+
+  .order{
+    padding: 20px 0;
+    border-bottom: 1px solid #DDDDDD;
+    cursor: pointer;
+    transition: 0.2s;
+
+    .buttons-bar{
+
+      .wrapper{
+        display: flex;
+        justify-content: center;
+
+        img{
+          margin-right: 3px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .order:hover{
+    background: #e8e8e8;
+    transform: scale(1.015);
+  }
+
+}

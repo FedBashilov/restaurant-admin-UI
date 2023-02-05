@@ -1,0 +1,44 @@
+<div class="wrapper">
+  <div class="title">
+    Товар № {{product.id}}
+  </div>
+
+  <form class="product_form" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="left_part">
+      <div class="form_element">
+        <mat-form-field>
+          <input matInput type="text" formControlName="name" placeholder = "Название">
+        </mat-form-field>
+        <div class="error" *ngIf="isControlInvalid('name', this.productForm)">
+          Введите название
+        </div>
+      </div>
+      <div class="form_element">
+        <mat-form-field>
+          <input matInput type="text" formControlName="price" placeholder = "Цена">
+        </mat-form-field>
+        <div class="error" *ngIf="isControlInvalid('price', this.productForm)">
+          Задайте цену
+        </div>
+      </div>
+      <div class="form_element">
+        <mat-form-field style="width: 300px;">
+          <textarea matInput cdkTextareaAutosize formControlName="description" placeholder="Описание"></textarea>
+        </mat-form-field>
+        <div class="error" *ngIf="isControlInvalid('description', this.productForm)">
+          Введите описание
+        </div>
+      </div>
+    </div>
+    <div class="right_part">
+      <img class="product_image" width="200px" height="200px" [defaultImage]="'assets/loading.png'" [lazyLoad]='this.apiService.PHP_API_SERVER+"/backend/product-photos/"+product.photo'><br>
+      <div >
+        Выбрать новое фото:
+      </div>
+      <input type="file" (change)="onFileChange($event)" accept="image/*">
+    </div>
+
+    <button class="common_button lemon" type="submit">Сохранить</button>
+  </form>
+
+</div>

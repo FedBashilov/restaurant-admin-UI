@@ -1,0 +1,58 @@
+<div class="wrapper">
+  <div class="title">
+    Заказ № {{order.id}}
+  </div>
+
+  <div class="flexbox">
+    <div class="static_info">
+      <div class="static_field">
+        Имя: {{order.client_first_name}}
+      </div>
+      <div class="static_field">
+        Телефон: {{order.phone}}
+      </div>
+      <div class="static_field">
+        Email: {{order.email}}
+      </div>
+      <div class="static_field">
+        Дата заказа: {{order.created}}
+      </div>
+      <div class="static_field">
+        Сумма: {{order.total_price}}руб.
+      </div>
+    </div>
+
+    <form class="order_form" [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+      <div class="form_element">
+        <mat-form-field>
+          <input matInput type="text" formControlName="address" placeholder = "Адрес">
+        </mat-form-field>
+        <div class="error" *ngIf="isControlInvalid('address', this.orderForm)">
+          Введите адрес
+        </div>
+      </div>
+      <div class="form_element">
+        <mat-label class="label">Товары</mat-label>
+        <mat-select class="select" multiple  [compareWith]="compareObjects" [(value)]="formProducts" placeholder="Товары">
+          <mat-option *ngFor="let product of allProducts"  [value]="product">
+            {{product.name}}
+          </mat-option>
+        </mat-select>
+        <div *ngFor="let formProduct of formProducts; index as i">
+          {{formProduct.name}}
+          <input class="form_product_amount" min=0 type="number" style="width: 3em" value='{{amount(formProduct)}}'>
+        </div>
+      </div>
+
+
+      <div class="form_element">
+        <mat-checkbox formControlName="bought">Оплачен</mat-checkbox>
+      </div>
+
+      <button class="common_button lemon" type="submit">Сохранить</button>
+    </form>
+
+  </div>
+
+
+</div>
